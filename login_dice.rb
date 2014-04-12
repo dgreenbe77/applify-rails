@@ -13,22 +13,11 @@ form.click_button(form.button_with(:value => /Login/))
 page = page.link_with(:text => "Upload Your Resume").click
 # may need to refactor
 
-# two FORMS on the page
+# two FORMS on the page, SECOND is the resume create field
 
-
- #  #<Mechanize::Form
- #   {name nil}
- #   {method "POST"}
- #   {action "http://www.dice.com/job/wwwSearch.html"}
- #   {fields
- #    [text:0x3ffbbce71308 type: text name: FREE_TEXT value: Search Tech Jobs]
- #    [hidden:0x3ffbbce71128 type: hidden name: src value: 54]}
- #   {radiobuttons}
- #   {checkboxes}
- #   {file_uploads}
- #   {buttons [button:0x3ffbbce703b8 type: submit name:  value: ]}>
-form = page.forms.first
-form["FREE_TEXT"] = "Keith's Res"
+form = page.forms.last
+form["profileName"] = "Keith's Res"
+form["desiredPosition"] = "Software developer"
 
 
 
