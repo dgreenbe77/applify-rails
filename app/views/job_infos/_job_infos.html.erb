@@ -8,8 +8,8 @@
   <%= f.input :city %>
   <%= f.input :state %>
   <%= f.input :zip_code %>
-  <%= f.input :resume %>
-  <%= f.input :cover_letter %>
+  <%= f.input :resume, input_html: {rows: 15} %>
+  <%= f.input :cover_letter, input_html: {rows: 15}%>
   <%= f.input :home_phone %>
   <%= f.input :work_phone %>
   <%= f.input :cell_phone %>

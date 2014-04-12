@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412170527) do
+ActiveRecord::Schema.define(version: 20140412183100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 20140412170527) do
     t.string   "city",            null: false
     t.string   "state",           null: false
     t.string   "zip_code",        null: false
-    t.string   "resume",          null: false
-    t.string   "cover_letter"
+    t.text     "resume",          null: false
+    t.text     "cover_letter"
     t.string   "home_phone",      null: false
     t.string   "work_phone"
     t.string   "cell_phone"
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20140412170527) do
     t.string   "title",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "daily_schedule",  null: false
     t.string   "work_auth",       null: false
+    t.boolean  "daily_schedule",  null: false
   end
 
   add_index "job_infos", ["contact_email"], name: "index_job_infos_on_contact_email", unique: true, using: :btree

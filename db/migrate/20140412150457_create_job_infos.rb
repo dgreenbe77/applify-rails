@@ -9,8 +9,8 @@ class CreateJobInfos < ActiveRecord::Migration
       t.string :city, null: false
       t.string :state, null: false
       t.string :zip_code, null: false
-      t.string :resume, null: false
-      t.string :cover_letter
+      t.text :resume, null: false
+      t.text :cover_letter
       t.string :home_phone, null: false
       t.string :work_phone
       t.string :cell_phone
