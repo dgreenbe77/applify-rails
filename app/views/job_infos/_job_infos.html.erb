@@ -8,15 +8,21 @@
   <%= f.input :city %>
   <%= f.input :state %>
   <%= f.input :zip_code %>
-  <%= f.input :resume, input_html: {rows: 15} %>
+  <%= f.input :resume, input_html: {rows: 15} %> or
+  <%= f.filepicker_field :filepicker_url, services: "COMPUTER, URL", value: "Upload Resume", button_text: 'Upload Resume' %>
   <%= f.input :cover_letter, input_html: {rows: 15}%>
   <%= f.input :home_phone %>
   <%= f.input :work_phone %>
   <%= f.input :cell_phone %>
   <%= f.input :primary_contact, collection: ['Home Phone', 'Cell Phone', 'Work Phone'] %>
+  <%= f.input :skills, label: 'Enter Skills (Limit: 20)' %>
   <%= f.input :desired_salary %>
   <%= f.input :current_salary %>
-  <%= f.input :daily_schedule, label: "Schedule Daily Submission of Resume" %>
+  <%= f.input :work_auth, collection: ["Green Card Holder", "Canadian Citizen",
+     "U.S. Citizen", "TN Permit Holder", "Employment Authorization Document",
+     "Have H-1 Visa", "Need H-1 Visa"] %>
+  <%= f.input :daily_schedule, label: "Check to Schedule Daily Submission of Resume" %>
   <%= f.button :submit, 'Store Job Info' %>
 
 <% end %>
+<%= filepicker_js_include_tag %>

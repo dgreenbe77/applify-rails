@@ -1,6 +1,10 @@
 <table>
   <tr>
     <p><%= @job_info.title %></p>
+    <% unless @job_info.filepicker_url == "Add Image" || @job_info.filepicker_url.blank? %>
+      <%= filepicker_image_tag @job_info.filepicker_url, w: 400, h: 400, fit: 'clip', class: 'center' %>
+      <%= filepicker_save_button "Save", @job_info.filepicker_url, "image/jpg" %>
+    <% end %>
     <td><%= link_to "Edit", edit_job_info_path(@job_info) %></td>
     <td><%= link_to "Delete", job_info_path(@job_info),
       method: :delete %></td>

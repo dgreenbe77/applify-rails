@@ -15,6 +15,7 @@ class JobInfo < ActiveRecord::Base
   validates :home_phone, presence: true
   validates :primary_contact, presence: true , inclusion: { in: CONTACTS }
   validates :title, presence: true
-  validates :daily_schedule, presence: true
+  validates :daily_schedule, default: false
   validates :work_auth, inclusion: { in: AUTHS }
+  validates :skills, presence: true
 end

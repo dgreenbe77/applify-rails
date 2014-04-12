@@ -10,6 +10,8 @@ gem 'rails', '4.0.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'filepicker-rails'
+
 gem 'sidekiq'
 
 gem 'slim'
@@ -53,6 +55,7 @@ gem 'foundation'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 gem 'rails_12factor', group: :production

@@ -15,10 +15,11 @@ class JobInfosController < ApplicationController
   def create
     @job_info = JobInfo.new(job_info_params)
     @job_info.user = current_user
+    @job_info.skills = @job_info.skills.split(' ').shift(20).join(' ')
 
     if @job_info.save
-      MechanizeWorker.perform_async(@job_info.id)
-      redirect_to @job_info, 
+      CapybaraWorker.perform_async(@job_info.id)
+      redirect_to job_infos_path(@job_info), 
         notice: 'Job Info Added'
     else
       render :new
@@ -57,7 +58,8 @@ class JobInfosController < ApplicationController
 
   def job_info_params
     params.require(:job_info).permit(:primary_contact, :current_salary, :desired_salary, :cell_phone, :work_phone, :home_phone, :cover_letter,
-                                      :resume, :zip_code, :state, :city, :address, :contact_email, :last_name, :first_name, :title, :daily_schedule)
+                                      :resume, :zip_code, :state, :city, :address, :contact_email, :last_name, :first_name, :title, :daily_schedule,
+                                      :filepicker_url, :work_auth, :skills)
   end
 
 end
