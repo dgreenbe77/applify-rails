@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem "mechanize"
 
+gem 'sidetiq'
+
 gem "nokogiri"
 
 gem 'gon'
