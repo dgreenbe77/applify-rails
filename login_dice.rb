@@ -9,17 +9,32 @@ form["SJT_PASSWD"] = "password1"
 form.click_button(form.button_with(:value => /Login/))
 
 # upload resume
-## this may be a little dicey since this is from home page
+
+page = agent.get("http://www.dice.com/")
 page = page.link_with(:text => "Upload Your Resume").click
-# may need to refactor
 
-# two FORMS on the page, SECOND is the resume create field
+#fill in second form
+uploadform = page.forms.last
+uploadform["profileName"] = "Keith's Res"
+uploadform["desiredPosition"] = "Software developer"
+uploadform["workAuth"] = "USC"
+uploadform["resumeType"] = 2
+uploadform["resumeText"] = "Super Resume"
+uploadform["buttonClicked"] = "submit"
+button = uploadform.button_with(:value => "Create Your Profile")
+agent.submit(uploadform, button)
 
-form = page.forms.last
-form["profileName"] = "Keith's Res"
-form["desiredPosition"] = "Software developer"
 
-
+# <select id="workAuth" name="workAuth" class="selectWidth">
+#   <option value="NTHG">--</option>
+#   <option value="H1R">Need H-1 Visa</option>
+#   <option value="H1">Have H-1 Visa</option>
+#   <option value="EAD">Employment Authorization Document</option>
+#   <option value="TNPH">TN Permit Holder</option>
+#   <option value="USC">U.S. Citizen</option>
+#   <option value="CAN">Canadian Citizen</option>
+#   <option value="GCH">Green Card Holder</option>
+# </select>
 
  #  #<Mechanize::Form
  #   {name "createProfile"}
