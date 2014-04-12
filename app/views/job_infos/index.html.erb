@@ -1,0 +1,14 @@
+<h1> List of Job Information </h1>
+
+<div class = "large-12 medium-12 columns">
+  <%= link_to "Enter Job Info", new_job_info_path, class: "medium button"%>
+</div>
+<%= link_to 'See Job Applications', job_applications_path %>
+<ul>
+  <li><% @job_infos.each do |job| %></li>
+  <li><%= link_to job.title, job_infos_path(job) %></li>
+  <%= link_to 'Display', job %> |
+  <%= link_to 'Edit', edit_job_info_path(job) %> |
+  <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Do You Want To Delete This Information?' } %>
+  <li><% end %></li>
+</ul>

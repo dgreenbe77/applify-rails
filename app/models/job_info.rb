@@ -11,7 +11,7 @@ class JobInfo < ActiveRecord::Base
   validates :zip_code, presence: true, format: {:with => /^\d{5}(-\d{4})?$/,
                                                 :message => "should be in the form 12345 or 12345-1234", multiline: true}
   validates :resume, presence: true
-  validates :country, presence: true
   validates :home_phone, presence: true
-  validates :primary_contact, inclusion: { in: CONTACTS })
+  validates :primary_contact, inclusion: { in: CONTACTS }
+  validates :title, presence: true
 end

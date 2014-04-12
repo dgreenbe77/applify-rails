@@ -16,8 +16,8 @@ class CreateJobInfos < ActiveRecord::Migration
       t.string :cell_phone
       t.string :desired_salary
       t.string :current_salary
-      t.string :country, null: false
       t.string :primary_contact
+      t.string :title, null: false
 
       t.timestamps
     end
