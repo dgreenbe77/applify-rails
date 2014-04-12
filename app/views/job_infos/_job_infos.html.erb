@@ -1,0 +1,22 @@
+<%= simple_form_for(@job_info) do |f| %>
+
+  <%= f.input :title, label: 'Title for Finding Job Information' %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :contact_email %>
+  <%= f.input :address %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :zip_code %>
+  <%= f.input :resume %>
+  <%= f.input :cover_letter %>
+  <%= f.input :home_phone %>
+  <%= f.input :work_phone %>
+  <%= f.input :cell_phone %>
+  <%= f.input :desired_salary %>
+  <%= f.input :current_salary %>
+  <%= f.input :primary_contact, collection: ['Home Phone', 'Cell Phone', 'Work Phone'] %>
+  <%= f.button :submit, 'Store Job Info' %>
+
+
+<% end %>

@@ -1,0 +1,12 @@
+<h1> List of Job Applications </h1>
+
+<%= link_to "Home", job_infos_path %>
+
+<ul>
+  <li><% @job_applications.each do |app| %></li>
+  <li><%= link_to app.job_title, job_applications_path(app) %></li>
+  <%= link_to 'Display', app %> |
+  <%= link_to 'Edit', edit_job_application_path(app) %> |
+  <%= link_to 'Destroy', app, method: :delete, data: { confirm: 'Do You Want To Delete This Application Information?' } %>
+  <li><% end %></li>
+</ul>

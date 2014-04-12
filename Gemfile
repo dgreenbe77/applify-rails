@@ -6,6 +6,7 @@ gem 'rails', '4.0.4'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'simple_form'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
@@ -33,6 +34,12 @@ group :doc do
 end
 
 gem 'devise'
+
+gem 'foundation'
+
+group :development, :test do
+  gem 'pry-rails'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
