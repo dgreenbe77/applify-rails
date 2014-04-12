@@ -2,6 +2,9 @@ Applify::Application.routes.draw do
   devise_for :users
   resources :job_infos
   resources :job_applications
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web, at: '/sidekiq'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

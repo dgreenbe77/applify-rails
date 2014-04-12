@@ -12,6 +12,7 @@ class JobInfo < ActiveRecord::Base
                                                 :message => "should be in the form 12345 or 12345-1234", multiline: true}
   validates :resume, presence: true
   validates :home_phone, presence: true
-  validates :primary_contact, inclusion: { in: CONTACTS }
+  validates :primary_contact, presence: true , inclusion: { in: CONTACTS }
   validates :title, presence: true
+  validates :daily_schedule, presence: true
 end

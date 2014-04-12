@@ -18,7 +18,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: applify_development
-  pool: 5
+  pool: 25
   username: 
   password:
 
@@ -47,7 +47,7 @@ test:
   adapter: postgresql
   encoding: unicode
   database: applify_test
-  pool: 5
+  pool: 25
   username: 
   password:
 
@@ -55,6 +55,6 @@ production:
   adapter: postgresql
   encoding: unicode
   database: applify_production
-  pool: 5
+  pool: 25
   username: 
   password:

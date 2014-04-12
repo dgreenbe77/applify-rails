@@ -1,6 +1,6 @@
 <%= simple_form_for(@job_info) do |f| %>
 
-  <%= f.input :title, label: 'Title for Finding Job Information' %>
+  <%= f.input :title, label: 'Title for this Job Information' %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :contact_email %>
@@ -13,10 +13,10 @@
   <%= f.input :home_phone %>
   <%= f.input :work_phone %>
   <%= f.input :cell_phone %>
+  <%= f.input :primary_contact, collection: ['Home Phone', 'Cell Phone', 'Work Phone'] %>
   <%= f.input :desired_salary %>
   <%= f.input :current_salary %>
-  <%= f.input :primary_contact, collection: ['Home Phone', 'Cell Phone', 'Work Phone'] %>
+  <%= f.input :daily_schedule, label: "Schedule Daily Submission of Resume" %>
   <%= f.button :submit, 'Store Job Info' %>
-
 
 <% end %>
