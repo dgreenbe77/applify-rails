@@ -30,32 +30,33 @@ ActiveRecord::Schema.define(version: 20140412204747) do
   add_index "job_applications", ["user_id"], name: "index_job_applications_on_user_id", using: :btree
 
   create_table "job_infos", force: true do |t|
-    t.integer  "user_id",         null: false
-    t.string   "first_name",      null: false
-    t.string   "last_name",       null: false
-    t.string   "contact_email",   null: false
-    t.string   "address",         null: false
-    t.string   "city",            null: false
-    t.string   "state",           null: false
-    t.string   "zip_code",        null: false
-    t.text     "resume",          null: false
+    t.integer  "user_id",          null: false
+    t.string   "first_name",       null: false
+    t.string   "last_name",        null: false
+    t.string   "dice_email",       null: false
+    t.string   "dice_password",    null: false
+    t.string   "desired_position", null: false
+    t.string   "address",          null: false
+    t.string   "city",             null: false
+    t.string   "state",            null: false
+    t.string   "zip_code",         null: false
+    t.text     "resume",           null: false
     t.text     "cover_letter"
-    t.string   "home_phone",      null: false
+    t.string   "home_phone",       null: false
     t.string   "work_phone"
     t.string   "cell_phone"
     t.string   "desired_salary"
     t.string   "current_salary"
     t.string   "primary_contact"
-    t.string   "title",           null: false
+    t.string   "title",            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "work_auth",       null: false
-    t.boolean  "daily_schedule",  null: false
+    t.string   "work_auth",        null: false
+    t.boolean  "daily_schedule",   null: false
     t.string   "filepicker_url"
-    t.string   "skills",          null: false
+    t.string   "skills",           null: false
   end
 
-  add_index "job_infos", ["contact_email"], name: "index_job_infos_on_contact_email", unique: true, using: :btree
   add_index "job_infos", ["user_id"], name: "index_job_infos_on_user_id", using: :btree
 
   create_table "users", force: true do |t|

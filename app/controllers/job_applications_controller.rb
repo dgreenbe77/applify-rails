@@ -3,6 +3,7 @@ class JobApplicationsController < ApplicationController
 
   def index
     @job_applications = current_user.job_applications
+    
   end
 
 end

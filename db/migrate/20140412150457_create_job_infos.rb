@@ -4,7 +4,9 @@ class CreateJobInfos < ActiveRecord::Migration
       t.integer :user_id, null: false
       t.string :first_name, null: false
       t.string :last_name, null: false
-      t.string :contact_email, null: false
+      t.string :dice_email, null: false
+      t.string :dice_password, null: false
+      t.string :desired_position, null: false
       t.string :address, null: false
       t.string :city, null: false
       t.string :state, null: false
@@ -21,7 +23,6 @@ class CreateJobInfos < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :job_infos, :contact_email, unique: true
     add_index :job_infos, :user_id
   end
 end

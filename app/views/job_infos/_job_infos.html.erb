@@ -1,9 +1,11 @@
 <%= simple_form_for(@job_info) do |f| %>
 
-  <%= f.input :title, label: 'Title for this Job Information' %>
+  <%= f.input :title, label: 'Profile Name' %>
+  <%= f.input :desired_position %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
-  <%= f.input :contact_email %>
+  <%= f.input :dice_email %>
+  <%= f.input :dice_password %>
   <%= f.input :address %>
   <%= f.input :city %>
   <%= f.input :state %>

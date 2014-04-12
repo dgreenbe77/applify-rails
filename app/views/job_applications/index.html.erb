@@ -1,6 +1,6 @@
 <h1> List of Job Applications </h1>
 
-<%= link_to "Home", job_infos_path %>
+<%= link_to "Home", app_infos_path %>
 
 <ul>
   <li><% @job_applications.each do |app| %></li>
@@ -10,3 +10,40 @@
   <%= link_to 'Destroy', app, method: :delete, data: { confirm: 'Do You Want To Delete This Application Information?' } %>
   <li><% end %></li>
 </ul>
+
+<script type='text/javascript' src='jsapi'></script>
+<script type='text/javascript'>
+  google.load('visualization', '1', {'packages':['annotatedtimeline']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('datetime', 'Date');
+    data.addColumn('number', 'Happiness');   
+    data.addColumn('number', 'Image Analysis');
+    data.addColumn('string', 'Post');
+
+    var date = gon.date;
+    var app_info = gon.app_infos;
+    app_info.forEach( function (arrayItem) {
+      for (var i in date) {
+        data.addRows([
+         [new Date(Date.parse(date[i])), arrayItem['happy_scale'], arrayItem['smile'], arrayItem['main_post']]
+         ]);
+      }
+    });
+
+    var options = {
+      colors: ['#e0440e', '#FFCC00'],
+      displayAnnotations: true,
+      max: 10,
+      fill: 10,
+      wmode: 'opaque',
+      thickness: 2,
+      displayAnnotations: true,
+    };
+
+    var chart = new google.visualization.AnnotatedTimeLine(document.getElementById('chart_div'));
+
+    chart.draw(data, options);
+  }
+</script>
