@@ -15,6 +15,9 @@ gem 'pg'
 
 gem 'filepicker-rails'
 
+gem "capybara"
+gem 'selenium-webdriver'
+
 gem 'sidekiq'
 
 gem 'slim'

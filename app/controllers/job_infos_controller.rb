@@ -16,10 +16,9 @@ class JobInfosController < ApplicationController
     @job_info = JobInfo.new(job_info_params)
     @job_info.user = current_user
     @job_info.skills = @job_info.skills.split(' ').shift(20).join(' ')
-
     if @job_info.save
       CapybaraWorker.perform_async(@job_info.id)
-      redirect_to job_infos_path(@job_info), 
+      redirect_to job_infos_path(@job_info),
         notice: 'Job Info Added'
     else
       render :new
@@ -29,12 +28,12 @@ class JobInfosController < ApplicationController
   def show
   end
 
-  def edit 
+  def edit
     @job_info.skills = @job_info.skills.split(' ').shift(20).join(' ')
 
     if @job_info.save
       CapybaraWorker.perform_async(@job_info.id)
-      redirect_to job_infos_path(@job_info), 
+      redirect_to job_infos_path(@job_info),
         notice: 'Job Info Added'
     else
       render :new
@@ -43,7 +42,7 @@ class JobInfosController < ApplicationController
 
   def update
     if @job_info.update(job_info_params)
-      redirect_to job_infos_path(@job_info), 
+      redirect_to job_infos_path(@job_info),
        notice: 'Updated successfully'
     else
       render :edit
@@ -52,7 +51,7 @@ class JobInfosController < ApplicationController
 
   def destroy
     @job_info.destroy
-    redirect_to job_infos_url, 
+    redirect_to job_infos_url,
       notice: 'Deleted successfully'
   end
 
