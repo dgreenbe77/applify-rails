@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem "mechanize"
 
-gem 'sidetiq'
+# gem 'sidetiq'
 
 gem "nokogiri"
 
@@ -16,6 +16,7 @@ gem 'pg'
 gem 'filepicker-rails'
 
 gem "capybara"
+
 gem 'selenium-webdriver'
 
 gem 'sidekiq'

@@ -17,7 +17,7 @@ class JobInfosController < ApplicationController
     @job_info.user = current_user
     @job_info.skills = @job_info.skills.split(' ').shift(20).join(' ')
     if @job_info.save
-      CapybaraWorker.perform_async(@job_info.id)
+      DiceWorker.perform_async(@job_info.id)
       redirect_to job_infos_path(@job_info),
         notice: 'Job Info Added'
     else
@@ -32,7 +32,7 @@ class JobInfosController < ApplicationController
     @job_info.skills = @job_info.skills.split(' ').shift(20).join(' ')
 
     if @job_info.save
-      CapybaraWorker.perform_async(@job_info.id)
+      DiceWorker.perform_async(@job_info.id)
       redirect_to job_infos_path(@job_info),
         notice: 'Job Info Added'
     else

@@ -1,4 +1,4 @@
-class CapybaraWorker
+class DiceWorker
   require 'capybara'
   include Sidekiq::Worker
   sidekiq_options queue: "high"
