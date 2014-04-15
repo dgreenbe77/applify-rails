@@ -18,6 +18,8 @@ class JobInfosController < ApplicationController
     @job_info.skills = @job_info.skills.split(' ').shift(20).join(' ')
     if @job_info.save
       DiceWorker.perform_async(@job_info.id)
+      DiceJobWorker.perform_async
+      MonsterWorker.perform_async
       redirect_to job_infos_path(@job_info),
         notice: 'Job Info Added'
     else
