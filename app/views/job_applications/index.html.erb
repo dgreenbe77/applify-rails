@@ -1,6 +1,6 @@
 <h1> List of Job Applications </h1>
 
-<%= link_to "Home", app_infos_path %>
+<%= link_to "Home", job_infos_path %>
 
 <ul>
   <li><% @job_applications.each do |app| %></li>
@@ -23,8 +23,8 @@
     data.addColumn('string', 'Post');
 
     var date = gon.date;
-    var app_info = gon.app_infos;
-    app_info.forEach( function (arrayItem) {
+    var happiness_log = gon.happiness_logs;
+    happiness_log.forEach( function (arrayItem) {
       for (var i in date) {
         data.addRows([
          [new Date(Date.parse(date[i])), arrayItem['happy_scale'], arrayItem['smile'], arrayItem['main_post']]

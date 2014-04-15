@@ -1,4 +1,4 @@
-class CapybaraWorker
+class DiceWorker
   require 'capybara'
   include Sidekiq::Worker
   sidekiq_options queue: "high"
@@ -37,7 +37,7 @@ class CapybaraWorker
 
     if session.has_field?(:id, "#skillData.errors.errors")
       session.click_on 'sectionEditLink_8'
-      skills = current_job.desired_position.split(',')
+      skills = current_job.skills.split(',')
         skills.each_with_index do |skill,index|
           session.fill_in "skills[#{index}].description", with: "#{skill}"
           session.click_on("skillAddButton")

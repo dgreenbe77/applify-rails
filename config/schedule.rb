@@ -21,6 +21,6 @@
 every 1.day, :at => '6:00 am' do
   job_infos = JobInfo.where(daily_schedule: true)
   job_infos.each do |job|
-    runner 'MechanizeWorker.perform_async(job.id)'
+    runner 'DiceWorker.perform_async(job.id)'
   end
 end
