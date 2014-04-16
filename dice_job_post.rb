@@ -2,16 +2,19 @@ require 'capybara'
 session = Capybara::Session.new(:selenium)
 session.visit 'http://www.dice.com'
 session.click_on 'Login/Register'
-session.fill_in 'Email_1', with: 'testingemailjobs@gmail.com' #current_user.email
+session.fill_in 'Email_1', with: 'keith.e.webber@gmail.com' #current_user.email
 session.fill_in 'Password_1', with: 'password1' #password
 session.click_on 'Login'
 session.fill_in 'navSearchInput', with: 'Ruby on Rails'
 session.click_on 'navSearchSubmit'
 search_page = session.current_url
 anchors = session.all('tr.gold td:first-child a')
-anchors.each do |a| 
-  if a[:href].include?('dice.com') || !a[:href].include?('op=1030')
-    session.visit a[:href]
+
+links = anchors.map {|a| a[:href]}
+
+links.each do |a|
+  if a.include?('dice.com') && !a.include?('op=1030')
+    session.visit a
     job_url = session.find('a#APPLY_FOR_JOB')[:href]
     unless job_url.include?('&url=')
       session.visit job_url
